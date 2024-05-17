@@ -1,0 +1,19 @@
+{
+  "name": "bisheng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "env-start": "wp-env start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/core-data": "^6.35.0",
+    "@wordpress/hooks": "^3.58.0",
+    "@wordpress/scripts": "^27.9.0"
+  }
+}
