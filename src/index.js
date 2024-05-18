@@ -10,7 +10,7 @@
       const { attributes, setAttributes, isSelected } = props;
       const { mobileAttributes = {} } = attributes;
 
-      const isMobilePreview = select('core/edit-post').__experimentalGetPreviewDeviceType() || select('core/edit-site').__experimentalGetPreviewDeviceType();
+      const isMobilePreview = select('core/edit-post')?.__experimentalGetPreviewDeviceType() ?? select('core/edit-site')?.__experimentalGetPreviewDeviceType();
 
       const newSetAttributes = (newAttributes) => {
         console.log(newAttributes);
@@ -21,8 +21,13 @@
         }
       };
 
+      /**
+       * Do the same thing for all attributes
+       */
+    const attrs = ( isMobilePreview ) ? { ...attributes, ...mobileAttributes } : attributes;
+
       return (
-          <BlockEdit {...props}  setAttributes={newSetAttributes} />
+          <BlockEdit {...props} attributes={attrs} setAttributes={newSetAttributes} />
       );
     };
   }, 'withMobileAttributes');
